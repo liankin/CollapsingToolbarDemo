@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.admin.collapsingtoolbardemo.view.TranslucentScrollView
+        android:id="@+id/pullzoom_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/lay_header"
+                android:layout_width="match_parent"
+                android:layout_height="248dp"
+                android:background="@drawable/bg_banner_my"
+                android:orientation="vertical">
+                <View
+                    android:id="@+id/v_statusbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.0dp"
+                    android:background="@color/translate" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <RelativeLayout
+                        android:layout_width="137dp"
+                        android:layout_height="137dp"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/bg_avatar">
+                        <ImageView
+                            android:id="@+id/img_avatar"
+                            android:layout_width="105dp"
+                            android:layout_height="105dp"
+                            android:layout_centerInParent="true"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/dft_avatar" />
+                    </RelativeLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="15dp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/tv_name"
+                            style="@style/text_white"
+                            android:layout_gravity="center_horizontal"
+                            android:text="用户名"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="15sp" />
+                    </LinearLayout>
+                </RelativeLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@color/colorWhite"
+                android:orientation="horizontal"
+                android:paddingBottom="8dp"
+                android:paddingTop="8dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:text="博客"
+                    android:textSize="22sp"
+                    android:textColor="#e73737"
+                    android:gravity="center"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:text="博客"
+                    android:textSize="22sp"
+                    android:textColor="#b334c1"
+                    android:gravity="center"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:text="博客"
+                    android:textSize="22sp"
+                    android:textColor="#3835ea"
+                    android:gravity="center"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <include layout="@layout/item_card"/>
+                <include layout="@layout/item_card"/>
+                <include layout="@layout/item_card"/>
+                <include layout="@layout/item_card"/>
+                <include layout="@layout/item_card"/>
+                <include layout="@layout/item_card"/>
+                <include layout="@layout/item_card"/>
+                <include layout="@layout/item_card"/>
+                <include layout="@layout/item_card"/>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:background="@color/colorWhite" />
+        </LinearLayout>
+    </com.admin.collapsingtoolbardemo.view.TranslucentScrollView>
+
+    <com.admin.collapsingtoolbardemo.view.TranslucentActionBar
+        android:id="@+id/actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorOrange" />
+
+</RelativeLayout>
