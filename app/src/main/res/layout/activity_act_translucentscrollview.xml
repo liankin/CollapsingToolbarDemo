@@ -4,92 +4,73 @@
     android:layout_height="match_parent">
 
     <com.admin.collapsingtoolbardemo.view.TranslucentScrollView
-        android:id="@+id/pullzoom_scrollview"
+        android:id="@+id/translucent_scroll_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/colorGray">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <LinearLayout
-                android:id="@+id/lay_header"
+            <RelativeLayout
+                android:id="@+id/layout_header"
                 android:layout_width="match_parent"
-                android:layout_height="248dp"
-                android:background="@drawable/bg_banner_my"
+                android:layout_height="280dp"
+                android:background="@drawable/bg_image_sea"
                 android:orientation="vertical">
-                <View
-                    android:id="@+id/v_statusbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="0.0dp"
-                    android:background="@color/translate" />
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <RelativeLayout
-                        android:layout_width="137dp"
-                        android:layout_height="137dp"
-                        android:layout_centerInParent="true"
-                        android:background="@drawable/bg_avatar">
-                        <ImageView
-                            android:id="@+id/img_avatar"
-                            android:layout_width="105dp"
-                            android:layout_height="105dp"
-                            android:layout_centerInParent="true"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/dft_avatar" />
-                    </RelativeLayout>
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginBottom="15dp"
-                        android:orientation="vertical">
-                        <TextView
-                            android:id="@+id/tv_name"
-                            style="@style/text_white"
-                            android:layout_gravity="center_horizontal"
-                            android:text="用户名"
-                            android:textColor="@color/colorWhite"
-                            android:textSize="15sp" />
-                    </LinearLayout>
-                </RelativeLayout>
-            </LinearLayout>
+                <ImageView
+                    android:id="@+id/img_user"
+                    android:layout_width="132dp"
+                    android:layout_height="99dp"
+                    android:layout_centerInParent="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_user" />
+                <TextView
+                    android:id="@+id/tv_user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="@color/colorBlack"
+                    android:text="烘焙高高手"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@+id/img_user" />
+            </RelativeLayout>
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:background="@color/colorWhite"
-                android:orientation="horizontal"
-                android:paddingBottom="8dp"
-                android:paddingTop="8dp">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
                 <TextView
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:layout_height="match_parent"
-                    android:text="博客"
+                    android:layout_height="wrap_content"
+                    android:text="蛋糕"
                     android:textSize="22sp"
-                    android:textColor="#e73737"
+                    android:textColor="#f180cb"
                     android:gravity="center"/>
                 <TextView
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:layout_height="match_parent"
-                    android:text="博客"
+                    android:layout_height="wrap_content"
+                    android:text="饼干"
                     android:textSize="22sp"
-                    android:textColor="#b334c1"
+                    android:textColor="#f180cb"
                     android:gravity="center"/>
                 <TextView
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:layout_height="match_parent"
-                    android:text="博客"
+                    android:layout_height="wrap_content"
+                    android:text="面包"
                     android:textSize="22sp"
-                    android:textColor="#3835ea"
+                    android:textColor="#f180cb"
                     android:gravity="center"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="150dp"
                 android:orientation="vertical">
                 <include layout="@layout/item_card"/>
                 <include layout="@layout/item_card"/>
@@ -101,17 +82,12 @@
                 <include layout="@layout/item_card"/>
                 <include layout="@layout/item_card"/>
             </LinearLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="140dp"
-                android:background="@color/colorWhite" />
         </LinearLayout>
     </com.admin.collapsingtoolbardemo.view.TranslucentScrollView>
 
     <com.admin.collapsingtoolbardemo.view.TranslucentActionBar
-        android:id="@+id/actionbar"
+        android:id="@+id/translucent_action_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorOrange" />
-
+        android:background="@color/colorPrimary" />
 </RelativeLayout>

@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.admin.collapsingtoolbardemo.R;
@@ -16,18 +16,17 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * Created by admin on 2018/1/3.
+ * 沉浸式状态栏、actionBar渐变、scrollView顶部伸缩
  */
 
-public class ActTranslucentScrollView extends AppCompatActivity implements ActionBarClickListener,TranslucentScrollView.TranslucentChangedListener{
+public class ActTranslucentScrollView extends AppCompatActivity implements TranslucentScrollView.TranslucentChangedListener {
 
-    @BindView(R.id.lay_header)
-    LinearLayout layHeader;
-
-    @BindView(R.id.actionbar)
-    TranslucentActionBar actionBar;
-    @BindView(R.id.pullzoom_scrollview)
+    @BindView(R.id.layout_header)
+    RelativeLayout layoutHeader;
+    @BindView(R.id.translucent_scroll_view)
     TranslucentScrollView translucentScrollView;
+    @BindView(R.id.translucent_action_bar)
+    TranslucentActionBar translucentActionBar;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -38,21 +37,35 @@ public class ActTranslucentScrollView extends AppCompatActivity implements Actio
     }
 
     private void initView() {
-        //初始actionBar
-        actionBar.setData("测试", 0, null, 0, null, null);
+        // 初始actionBar：
+        // public void setData(String strTitle, int resIdLeft, String strLeft,
+        // int resIdRight, String strRight, final ActionBarClickListener listener)
+//        actionBar.setData("测试", 0, null, 0, null, null);
+        translucentActionBar.setData("个人中心", R.drawable.ic_left_light, "返回", R.drawable.ic_sign, "消息", new ActionBarClickListener() {
+            @Override
+            public void onLeftClick() {
+                Toast.makeText(ActTranslucentScrollView.this, "点击了左侧按钮", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onRightClick() {
+                Toast.makeText(ActTranslucentScrollView.this, "点击了右侧按钮", Toast.LENGTH_SHORT).show();
+            }
+        });
         //开启渐变
-        actionBar.setNeedTranslucent();
-        //设置状态栏高度
-        actionBar.setStatusBarHeight(getStatusBarHeight());
+        translucentActionBar.setNeedTranslucent();
+        //设置状态栏(标题栏)高度
+//        actionBar.setStatusBarHeight(30);
+        translucentActionBar.setStatusBarHeight(getStatusBarHeight());
 
         //设置透明度变化监听
         translucentScrollView.setTranslucentChangedListener(this);
         //关联需要渐变的视图
-        translucentScrollView.setTransView(actionBar);
+        translucentScrollView.setTransView(translucentActionBar);
         //设置ActionBar键渐变颜色
-        translucentScrollView.setTransColor(getResources().getColor(R.color.colorOrange));
+        translucentScrollView.setTransColor(getResources().getColor(R.color.colorPrimary));
         //关联伸缩的视图
-        translucentScrollView.setPullZoomView(layHeader);
+        translucentScrollView.setPullZoomView(layoutHeader);
     }
 
     /**
@@ -61,8 +74,8 @@ public class ActTranslucentScrollView extends AppCompatActivity implements Actio
      * @return
      */
     public int getStatusBarHeight() {
-        //获取status_bar_height资源的ID
-        int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
+        //获取dimen文件中status_bar_height资源的ID
+        int resourceId = getResources().getIdentifier("status_bar_height", "dimen", getPackageName());
         if (resourceId > 0) {
             //根据资源ID获取响应的尺寸值
             return getResources().getDimensionPixelSize(resourceId);
@@ -72,16 +85,7 @@ public class ActTranslucentScrollView extends AppCompatActivity implements Actio
 
     @Override
     public void onTranslucentChanged(int transAlpha) {
-        actionBar.tvTitle.setVisibility(transAlpha > 48 ? View.VISIBLE : View.GONE);
+        translucentActionBar.tvTitle.setVisibility(transAlpha > 48 ? View.VISIBLE : View.GONE);
     }
 
-    @Override
-    public void onLeftClick() {
-        Toast.makeText(ActTranslucentScrollView.this,"点击了左侧按钮",Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void onRightClick() {
-        Toast.makeText(ActTranslucentScrollView.this,"点击了右侧按钮",Toast.LENGTH_SHORT).show();
-    }
 }

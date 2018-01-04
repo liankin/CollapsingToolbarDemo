@@ -110,37 +110,37 @@ public final class TranslucentActionBar extends LinearLayout {
      * @param listener
      */
     public void setData(String strTitle, int resIdLeft, String strLeft, int resIdRight, String strRight, final ActionBarClickListener listener) {
-//        if (!TextUtils.isEmpty(strTitle)) {
-//            tvTitle.setText(strTitle);
-//        } else {
-//            tvTitle.setVisibility(View.GONE);
-//        }
-//        if (!TextUtils.isEmpty(strLeft)) {
-//            tvLeft.setText(strLeft);
-//            tvLeft.setVisibility(View.VISIBLE);
-//        } else {
-//            tvLeft.setVisibility(View.GONE);
-//        }
-//        if (!TextUtils.isEmpty(strRight)) {
-//            tvRight.setText(strRight);
-//            tvRight.setVisibility(View.VISIBLE);
-//        } else {
-//            tvRight.setVisibility(View.GONE);
-//        }
-//
-//        if (resIdLeft == 0) {
-//            iconLeft.setVisibility(View.GONE);
-//        } else {
-//            iconLeft.setBackgroundResource(resIdLeft);
-//            iconLeft.setVisibility(View.VISIBLE);
-//        }
-//
-//        if (resIdRight == 0) {
-//            iconRight.setVisibility(View.GONE);
-//        } else {
-//            iconRight.setBackgroundResource(resIdRight);
-//            iconRight.setVisibility(View.VISIBLE);
-//        }
+        if (!TextUtils.isEmpty(strTitle)) {
+            tvTitle.setText(strTitle);
+        } else {
+            tvTitle.setVisibility(View.GONE);
+        }
+        if (!TextUtils.isEmpty(strLeft)) {
+            tvLeft.setText(strLeft);
+            tvLeft.setVisibility(View.VISIBLE);
+        } else {
+            tvLeft.setVisibility(View.GONE);
+        }
+        if (!TextUtils.isEmpty(strRight)) {
+            tvRight.setText(strRight);
+            tvRight.setVisibility(View.VISIBLE);
+        } else {
+            tvRight.setVisibility(View.GONE);
+        }
+
+        if (resIdLeft == 0) {
+            iconLeft.setVisibility(View.GONE);
+        } else {
+            iconLeft.setBackgroundResource(resIdLeft);
+            iconLeft.setVisibility(View.VISIBLE);
+        }
+
+        if (resIdRight == 0) {
+            iconRight.setVisibility(View.GONE);
+        } else {
+            iconRight.setBackgroundResource(resIdRight);
+            iconRight.setVisibility(View.VISIBLE);
+        }
 
         if (listener != null) {
             layLeft = findViewById(R.id.lay_actionbar_left);

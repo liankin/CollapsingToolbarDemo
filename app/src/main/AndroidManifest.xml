@@ -18,6 +18,7 @@
         </activity>
         <activity android:name=".act.ActCoordinatorLayout"/>
         <activity android:name=".act.ActTranslucentScrollView"/>
+        <activity android:name=".act.ActSlidingImageRecyclerView"/>
     </application>
 
 </manifest>

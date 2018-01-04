@@ -8,6 +8,10 @@ import android.widget.ImageView;
 
 import com.admin.collapsingtoolbardemo.R;
 
+/**
+ * CollapsingToolbarLayout可折叠式标题栏：
+ * 向上滑动列表，使列表顶部的标题随之滑动并固定于标题栏；向下滑动，标题则恢复原位。
+ */
 public class ActCoordinatorLayout extends AppCompatActivity {
 
     private ImageView imageView;

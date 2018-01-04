@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.admin.collapsingtoolbardemo.act.ActCoordinatorLayout;
+import com.admin.collapsingtoolbardemo.act.ActSlidingImageRecyclerView;
 import com.admin.collapsingtoolbardemo.act.ActTranslucentScrollView;
 
 import butterknife.BindView;
@@ -24,6 +25,8 @@ public class HomeActivity extends AppCompatActivity {
     ImageView btnCoordinatorLayout;
     @BindView(R.id.btn_translucent_scroll_view)
     ImageView btnTranslucentScrollView;
+    @BindView(R.id.btn_sliping_image_recycler_view)
+    ImageView btnSlipingImageRecyclerView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,16 +35,20 @@ public class HomeActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.btn_coordinator_layout, R.id.btn_translucent_scroll_view})
+    @OnClick({R.id.btn_coordinator_layout, R.id.btn_translucent_scroll_view, R.id.btn_sliping_image_recycler_view})
     public void onViewClicked(View view) {
         Intent intent;
         switch (view.getId()) {
             case R.id.btn_coordinator_layout:
-                intent = new Intent(HomeActivity.this,ActCoordinatorLayout.class);
+                intent = new Intent(HomeActivity.this, ActCoordinatorLayout.class);
                 startActivity(intent);
                 break;
             case R.id.btn_translucent_scroll_view:
-                intent = new Intent(HomeActivity.this,ActTranslucentScrollView.class);
+                intent = new Intent(HomeActivity.this, ActTranslucentScrollView.class);
+                startActivity(intent);
+                break;
+            case R.id.btn_sliping_image_recycler_view:
+                intent = new Intent(HomeActivity.this, ActSlidingImageRecyclerView.class);
                 startActivity(intent);
                 break;
         }
