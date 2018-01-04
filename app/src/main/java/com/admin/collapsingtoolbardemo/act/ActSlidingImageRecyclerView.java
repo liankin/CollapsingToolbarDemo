@@ -8,7 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.admin.collapsingtoolbardemo.R;
-import com.admin.collapsingtoolbardemo.view.AdImageViewVersion1;
+import com.admin.collapsingtoolbardemo.view.AdImageView;
 import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
@@ -66,7 +66,7 @@ public class ActSlidingImageRecyclerView extends AppCompatActivity {
                 int lPos = mLinearLayoutManager.findLastCompletelyVisibleItemPosition();
                 for (int i = fPos; i <= lPos; i++) {
                     View view = mLinearLayoutManager.findViewByPosition(i);
-                    AdImageViewVersion1 adImageView = view.findViewById(R.id.image_view);
+                    AdImageView adImageView = view.findViewById(R.id.image_view);
                     if (adImageView.getVisibility() == View.VISIBLE) {
                         adImageView.setDy(mLinearLayoutManager.getHeight() - view.getTop());
                     }

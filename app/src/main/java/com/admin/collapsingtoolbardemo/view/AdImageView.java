@@ -21,19 +21,19 @@ public class AdImageView extends AppCompatImageView {
         super(context, attrs);
     }
 
-    private int mDx;
-    private int mMinDx;
+    private int mDy;
+    private int mMinDy;
 
-    public void setDx(int dx) {
+    public void setDy(int dy) {
         if (getDrawable() == null) {
             return;
         }
-        mDx = dx - mMinDx;
-        if (mDx <= 0) {
-            mDx = 0;
+        mDy = dy - mMinDy;
+        if (mDy <= 0) {
+            mDy = 0;
         }
-        if (mDx > getDrawable().getBounds().height() - mMinDx) {
-            mDx = getDrawable().getBounds().height() - mMinDx;
+        if (mDy > getDrawable().getBounds().height() - mMinDy) {
+            mDy = getDrawable().getBounds().height() - mMinDy;
         }
         invalidate();
     }
@@ -41,11 +41,11 @@ public class AdImageView extends AppCompatImageView {
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
-        mMinDx = h;
+        mMinDy = h;
     }
 
     public int getDx() {
-        return mDx;
+        return mDy;
     }
 
     @Override
