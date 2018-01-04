@@ -27,6 +27,6 @@
             android:layout_height="160dp"
             android:scaleType="centerCrop"
             android:layout_margin="10dp"
-            android:src="@drawable/btn_translucentscrollview"/>
+            android:src="@drawable/btn_slidingimage_recyclerview"/>
     </LinearLayout>
 </ScrollView>
