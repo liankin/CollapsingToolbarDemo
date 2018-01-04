@@ -22,9 +22,9 @@
             android:layout_margin="10dp"
             android:src="@drawable/btn_translucentscrollview"/>
         <ImageView
-            android:id="@+id/btn_sliping_image_recycler_view"
+            android:id="@+id/btn_sliding_image_recycler_view"
             android:layout_width="wrap_content"
-            android:layout_height="160dp"
+            android:layout_height="360dp"
             android:scaleType="centerCrop"
             android:layout_margin="10dp"
             android:src="@drawable/btn_slidingimage_recyclerview"/>

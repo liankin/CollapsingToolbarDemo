@@ -25,8 +25,8 @@ public class HomeActivity extends AppCompatActivity {
     ImageView btnCoordinatorLayout;
     @BindView(R.id.btn_translucent_scroll_view)
     ImageView btnTranslucentScrollView;
-    @BindView(R.id.btn_sliping_image_recycler_view)
-    ImageView btnSlipingImageRecyclerView;
+    @BindView(R.id.btn_sliding_image_recycler_view)
+    ImageView btnSlidingImageRecyclerView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -35,7 +35,7 @@ public class HomeActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.btn_coordinator_layout, R.id.btn_translucent_scroll_view, R.id.btn_sliping_image_recycler_view})
+    @OnClick({R.id.btn_coordinator_layout, R.id.btn_translucent_scroll_view, R.id.btn_sliding_image_recycler_view})
     public void onViewClicked(View view) {
         Intent intent;
         switch (view.getId()) {
@@ -47,7 +47,7 @@ public class HomeActivity extends AppCompatActivity {
                 intent = new Intent(HomeActivity.this, ActTranslucentScrollView.class);
                 startActivity(intent);
                 break;
-            case R.id.btn_sliping_image_recycler_view:
+            case R.id.btn_sliding_image_recycler_view:
                 intent = new Intent(HomeActivity.this, ActSlidingImageRecyclerView.class);
                 startActivity(intent);
                 break;
