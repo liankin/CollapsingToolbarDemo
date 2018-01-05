@@ -4,7 +4,20 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
+    <!-- toolbar菜单样式 parent="@style/ThemeOverlay.AppCompat.ActionBar" -->
+    <style name="ToolbarTheme" parent="AppTheme">
+        <item name="actionMenuTextColor">@color/colorAccent</item>
+        <!--设置menu中item的图标颜色:比如设置后搜索图标就会由黑色变成指定颜色-->
+        <item name="android:textColorSecondary">@color/colorWhite</item>
+    </style>
+    <!-- toolbar弹出菜单样式-->
+    <style name="ToolbarPopupTheme" parent="@style/ThemeOverlay.AppCompat">
+        <item name="android:colorBackground">@color/colorOrange</item>
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+
 </resources>

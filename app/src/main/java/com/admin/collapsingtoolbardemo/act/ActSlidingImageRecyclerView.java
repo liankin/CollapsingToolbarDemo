@@ -1,14 +1,21 @@
 package com.admin.collapsingtoolbardemo.act;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Gravity;
 import android.view.View;
+import android.view.WindowManager;
+import android.widget.LinearLayout;
 
 import com.admin.collapsingtoolbardemo.R;
 import com.admin.collapsingtoolbardemo.view.AdImageView;
+import com.admin.collapsingtoolbardemo.view.TitleBar;
+import com.admin.collapsingtoolbardemo.view.TranslucentScrollView;
 import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
@@ -25,9 +32,13 @@ import butterknife.ButterKnife;
 
 public class ActSlidingImageRecyclerView extends AppCompatActivity {
 
+
+    @BindView(R.id.title_bar)
+    TitleBar titleBar;
     @BindView(R.id.recycler_view)
     RecyclerView recyclerView;
-
+    @BindView(R.id.drawer)
+    DrawerLayout drawer;
     private LinearLayoutManager mLinearLayoutManager;
 
     @Override
@@ -35,7 +46,15 @@ public class ActSlidingImageRecyclerView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_act_slidingimage_recyclerview);
         ButterKnife.bind(this);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        }
 
+        setToolbar();
+        setList();
+    }
+
+    public void setList() {
         List<String> mockDatas = new ArrayList<>();
         for (int i = 0; i < 100; i++) {
             mockDatas.add(i + "");
@@ -73,5 +92,34 @@ public class ActSlidingImageRecyclerView extends AppCompatActivity {
                 }
             }
         });
+
+    }
+
+    public void setToolbar() {
+        titleBar.setTitle("页面顶部标题");
+        titleBar.setBackListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        titleBar.setRightImg(R.mipmap.ic_launcher_round, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (drawer.isDrawerOpen(Gravity.RIGHT)) {
+                    //右侧关闭drawer
+                    drawer.closeDrawer(Gravity.RIGHT);
+                } else {
+                    //右侧打开drawer
+                    drawer.openDrawer(Gravity.RIGHT);
+                }
+            }
+        });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
     }
 }

@@ -16,7 +16,7 @@ import com.admin.collapsingtoolbardemo.R;
  * email:303767416@qq.com
  */
 
-public final class TranslucentActionBar extends LinearLayout {
+public final class TranslucentToolBar extends LinearLayout {
 
     private View layRoot;
     private View vStatusBar;
@@ -28,22 +28,22 @@ public final class TranslucentActionBar extends LinearLayout {
     private View iconLeft;
     private View iconRight;
 
-    public TranslucentActionBar(Context context) {
+    public TranslucentToolBar(Context context) {
         this(context, null);
     }
 
-    public TranslucentActionBar(Context context, AttributeSet attrs) {
+    public TranslucentToolBar(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
-    public TranslucentActionBar(Context context, AttributeSet attrs, int defStyleAttr) {
+    public TranslucentToolBar(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
     private void init() {
         setOrientation(HORIZONTAL);
-        View contentView = inflate(getContext(), R.layout.actionbar_trans, this);
+        View contentView = inflate(getContext(), R.layout.layout_toolbar_translucent, this);
         layRoot = contentView.findViewById(R.id.lay_transroot);
         vStatusBar = contentView.findViewById(R.id.v_statusbar);
         tvTitle = (TextView) contentView.findViewById(R.id.tv_actionbar_title);
@@ -108,7 +108,7 @@ public final class TranslucentActionBar extends LinearLayout {
      * @param strRight
      * @param listener
      */
-    public void setData(String strTitle, int resIdLeft, String strLeft, int resIdRight, String strRight, final ActionBarClickListener listener) {
+    public void setData(String strTitle, int resIdLeft, String strLeft, int resIdRight, String strRight, final TranslucentToolBarClickListener listener) {
         if (!TextUtils.isEmpty(strTitle)) {
             tvTitle.setText(strTitle);
         } else {

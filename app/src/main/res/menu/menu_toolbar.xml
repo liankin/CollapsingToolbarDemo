@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_search"
+        android:orderInCategory="80"
+        android:title="搜索"
+        app:actionViewClass="android.support.v7.widget.SearchView"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/menu_share"
+        android:orderInCategory="90"
+        android:title="分享"
+        app:showAsAction="ifRoom" />
+    <!-- 子菜单 -->
+    <item
+        android:id="@+id/menu_more"
+        android:orderInCategory="100"
+        android:title="更多"
+        app:showAsAction="ifRoom">
+        <menu>
+            <item
+                android:id="@+id/menu_setting"
+                android:orderInCategory="300"
+                app:showAsAction="never"
+                android:title="设置"/>
+            <item
+                android:id="@+id/menu_exit"
+                android:orderInCategory="400"
+                app:showAsAction="never"
+                android:title="退出"/>
+        </menu>
+    </item>
+</menu>

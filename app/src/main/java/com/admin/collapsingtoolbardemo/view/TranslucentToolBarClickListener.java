@@ -6,7 +6,7 @@ package com.admin.collapsingtoolbardemo.view;
  * on 2016/8/17.
  * email:303767416@qq.com
  */
-public interface ActionBarClickListener {
+public interface TranslucentToolBarClickListener {
 
     void onLeftClick();
 

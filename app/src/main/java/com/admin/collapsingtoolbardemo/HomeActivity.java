@@ -5,10 +5,11 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.admin.collapsingtoolbardemo.act.ActCoordinatorLayout;
 import com.admin.collapsingtoolbardemo.act.ActSlidingImageRecyclerView;
+import com.admin.collapsingtoolbardemo.act.ActSlidingMenu;
 import com.admin.collapsingtoolbardemo.act.ActTranslucentScrollView;
 
 import butterknife.BindView;
@@ -21,12 +22,15 @@ import butterknife.OnClick;
 
 public class HomeActivity extends AppCompatActivity {
 
-    @BindView(R.id.btn_coordinator_layout)
-    ImageView btnCoordinatorLayout;
-    @BindView(R.id.btn_translucent_scroll_view)
-    ImageView btnTranslucentScrollView;
-    @BindView(R.id.btn_sliding_image_recycler_view)
-    ImageView btnSlidingImageRecyclerView;
+
+    @BindView(R.id.tv_coordinator_layout)
+    TextView tvCoordinatorLayout;
+    @BindView(R.id.tv_translucent_scroll_view)
+    TextView tvTranslucentScrollView;
+    @BindView(R.id.tv_sliding_image_recycler_view)
+    TextView tvSlidingImageRecyclerView;
+    @BindView(R.id.tv_sliding_menu)
+    TextView tvSlidingMenu;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -35,20 +39,25 @@ public class HomeActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.btn_coordinator_layout, R.id.btn_translucent_scroll_view, R.id.btn_sliding_image_recycler_view})
+    @OnClick({R.id.tv_coordinator_layout, R.id.tv_translucent_scroll_view,
+            R.id.tv_sliding_image_recycler_view, R.id.tv_sliding_menu})
     public void onViewClicked(View view) {
         Intent intent;
         switch (view.getId()) {
-            case R.id.btn_coordinator_layout:
+            case R.id.tv_coordinator_layout:
                 intent = new Intent(HomeActivity.this, ActCoordinatorLayout.class);
                 startActivity(intent);
                 break;
-            case R.id.btn_translucent_scroll_view:
+            case R.id.tv_translucent_scroll_view:
                 intent = new Intent(HomeActivity.this, ActTranslucentScrollView.class);
                 startActivity(intent);
                 break;
-            case R.id.btn_sliding_image_recycler_view:
+            case R.id.tv_sliding_image_recycler_view:
                 intent = new Intent(HomeActivity.this, ActSlidingImageRecyclerView.class);
+                startActivity(intent);
+                break;
+            case R.id.tv_sliding_menu:
+                intent = new Intent(HomeActivity.this, ActSlidingMenu.class);
                 startActivity(intent);
                 break;
         }

@@ -28,6 +28,8 @@
                 app:layout_collapseParallaxMultiplier="0.5"/>
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
+                app:theme="@style/ToolbarTheme"
+                app:popupTheme="@style/ToolbarPopupTheme"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin" />
@@ -36,9 +38,11 @@
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/colorGray"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
         <LinearLayout
             android:orientation="vertical"
+            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <include layout="@layout/item_card"/>

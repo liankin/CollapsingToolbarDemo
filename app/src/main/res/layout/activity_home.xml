@@ -1,32 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <ImageView
-            android:id="@+id/btn_coordinator_layout"
-            android:layout_width="wrap_content"
-            android:layout_height="160dp"
-            android:scaleType="centerCrop"
-            android:layout_margin="10dp"
-            android:src="@drawable/btn_coordinatorlayout"/>
-        <ImageView
-            android:id="@+id/btn_translucent_scroll_view"
-            android:layout_width="wrap_content"
-            android:layout_height="160dp"
-            android:scaleType="centerCrop"
-            android:layout_margin="10dp"
-            android:src="@drawable/btn_translucentscrollview"/>
-        <ImageView
-            android:id="@+id/btn_sliding_image_recycler_view"
-            android:layout_width="wrap_content"
-            android:layout_height="360dp"
-            android:scaleType="centerCrop"
-            android:layout_margin="10dp"
-            android:src="@drawable/btn_slidingimage_recyclerview"/>
-    </LinearLayout>
-</ScrollView>
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_coordinator_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textSize="20sp"
+                android:text="CollapsingToolbarLayout可折叠式标题栏"/>
+            <TextView
+                android:id="@+id/tv_translucent_scroll_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:layout_margin="10dp"
+                android:text="沉浸式状态栏、actionBar渐变、scrollView顶部伸缩"/>
+            <TextView
+                android:id="@+id/tv_sliding_image_recycler_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:layout_margin="10dp"
+                android:text="1.往上滚动：在图片刚出现时展示顶部部分，随着滚动部分展示全部；\n2.往下滚动：在图片刚出现时展示底部部分，随着滚动部分展示全部"/>
+            <TextView
+                android:id="@+id/tv_sliding_menu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:layout_margin="10dp"
+                android:text="侧滑菜单"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

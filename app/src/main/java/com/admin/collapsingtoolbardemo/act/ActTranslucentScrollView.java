@@ -1,15 +1,17 @@
 package com.admin.collapsingtoolbardemo.act;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.admin.collapsingtoolbardemo.R;
-import com.admin.collapsingtoolbardemo.view.ActionBarClickListener;
-import com.admin.collapsingtoolbardemo.view.TranslucentActionBar;
+import com.admin.collapsingtoolbardemo.view.TranslucentToolBarClickListener;
+import com.admin.collapsingtoolbardemo.view.TranslucentToolBar;
 import com.admin.collapsingtoolbardemo.view.TranslucentScrollView;
 
 import butterknife.BindView;
@@ -26,25 +28,29 @@ public class ActTranslucentScrollView extends AppCompatActivity implements Trans
     @BindView(R.id.translucent_scroll_view)
     TranslucentScrollView translucentScrollView;
     @BindView(R.id.translucent_action_bar)
-    TranslucentActionBar translucentActionBar;
+    TranslucentToolBar translucentToolBar;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_act_translucentscrollview);
         ButterKnife.bind(this);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        }
         initView();
     }
 
     private void initView() {
         // 初始actionBar：
         // public void setData(String strTitle, int resIdLeft, String strLeft,
-        // int resIdRight, String strRight, final ActionBarClickListener listener)
+        // int resIdRight, String strRight, final TranslucentToolBarClickListener listener)
 //        actionBar.setData("测试", 0, null, 0, null, null);
-        translucentActionBar.setData("个人中心", R.drawable.ic_left_light, "返回", R.drawable.ic_sign, "消息", new ActionBarClickListener() {
+        translucentToolBar.setData("个人中心", R.drawable.ic_left_light, "返回", R.drawable.ic_sign, "消息", new TranslucentToolBarClickListener() {
             @Override
             public void onLeftClick() {
-                Toast.makeText(ActTranslucentScrollView.this, "点击了左侧按钮", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(ActTranslucentScrollView.this, "点击了左侧按钮", Toast.LENGTH_SHORT).show();
+                finish();
             }
 
             @Override
@@ -53,15 +59,15 @@ public class ActTranslucentScrollView extends AppCompatActivity implements Trans
             }
         });
         //开启渐变
-        translucentActionBar.setNeedTranslucent();
+        translucentToolBar.setNeedTranslucent();
         //设置状态栏(标题栏)高度
 //        actionBar.setStatusBarHeight(30);
-        translucentActionBar.setStatusBarHeight(getStatusBarHeight());
+        translucentToolBar.setStatusBarHeight(getStatusBarHeight());
 
         //设置透明度变化监听
         translucentScrollView.setTranslucentChangedListener(this);
         //关联需要渐变的视图
-        translucentScrollView.setTransView(translucentActionBar);
+        translucentScrollView.setTransView(translucentToolBar);
         //设置ActionBar键渐变颜色
         translucentScrollView.setTransColor(getResources().getColor(R.color.colorPrimary));
         //关联伸缩的视图
@@ -85,7 +91,12 @@ public class ActTranslucentScrollView extends AppCompatActivity implements Trans
 
     @Override
     public void onTranslucentChanged(int transAlpha) {
-        translucentActionBar.tvTitle.setVisibility(transAlpha > 48 ? View.VISIBLE : View.GONE);
+        translucentToolBar.tvTitle.setVisibility(transAlpha > 48 ? View.VISIBLE : View.GONE);
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
 }
