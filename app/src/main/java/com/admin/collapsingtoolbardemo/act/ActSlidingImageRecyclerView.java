@@ -96,7 +96,7 @@ public class ActSlidingImageRecyclerView extends AppCompatActivity {
     }
 
     public void setToolbar() {
-        titleBar.setTitle("页面顶部标题");
+        titleBar.setTitle("titleBar标题");
         titleBar.setBackListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

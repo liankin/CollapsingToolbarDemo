@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.admin.collapsingtoolbardemo.act.ActCoordinatorLayout;
 import com.admin.collapsingtoolbardemo.act.ActSlidingImageRecyclerView;
-import com.admin.collapsingtoolbardemo.act.ActSlidingMenu;
+import com.admin.collapsingtoolbardemo.act.ActSystemSlidingMenuNoTitle;
 import com.admin.collapsingtoolbardemo.act.ActTranslucentScrollView;
 
 import butterknife.BindView;
@@ -29,8 +29,9 @@ public class HomeActivity extends AppCompatActivity {
     TextView tvTranslucentScrollView;
     @BindView(R.id.tv_sliding_image_recycler_view)
     TextView tvSlidingImageRecyclerView;
-    @BindView(R.id.tv_sliding_menu)
-    TextView tvSlidingMenu;
+    @BindView(R.id.tv_system_sliding_menu_no_title)
+    TextView tvSystemSlidingMenuNoTitle;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -40,7 +41,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     @OnClick({R.id.tv_coordinator_layout, R.id.tv_translucent_scroll_view,
-            R.id.tv_sliding_image_recycler_view, R.id.tv_sliding_menu})
+            R.id.tv_sliding_image_recycler_view, R.id.tv_system_sliding_menu_no_title})
     public void onViewClicked(View view) {
         Intent intent;
         switch (view.getId()) {
@@ -56,8 +57,8 @@ public class HomeActivity extends AppCompatActivity {
                 intent = new Intent(HomeActivity.this, ActSlidingImageRecyclerView.class);
                 startActivity(intent);
                 break;
-            case R.id.tv_sliding_menu:
-                intent = new Intent(HomeActivity.this, ActSlidingMenu.class);
+            case R.id.tv_system_sliding_menu_no_title:
+                intent = new Intent(HomeActivity.this, ActSystemSlidingMenuNoTitle.class);
                 startActivity(intent);
                 break;
         }

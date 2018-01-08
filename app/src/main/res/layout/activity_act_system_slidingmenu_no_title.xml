@@ -21,6 +21,7 @@
         </android.support.v7.widget.Toolbar>
         <!--主布局-->
         <LinearLayout
+            android:id="@+id/layout_home_content"
             android:background="@color/colorWhite"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -28,6 +29,7 @@
         </LinearLayout>
         <!--侧滑菜单-->
         <LinearLayout
+            android:id="@+id/layout_sliding_menu"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/colorWhite"

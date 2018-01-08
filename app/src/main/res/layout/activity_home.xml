@@ -30,14 +30,14 @@
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
                 android:layout_margin="10dp"
-                android:text="1.往上滚动：在图片刚出现时展示顶部部分，随着滚动部分展示全部；\n2.往下滚动：在图片刚出现时展示底部部分，随着滚动部分展示全部"/>
+                android:text="1.往上滚动：在图片刚出现时展示顶部部分，随着滚动部分展示全部；\n2.往下滚动：在图片刚出现时展示底部部分，随着滚动部分展示全部；\n3.自定义侧滑菜单"/>
             <TextView
-                android:id="@+id/tv_sliding_menu"
+                android:id="@+id/tv_system_sliding_menu_no_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
                 android:layout_margin="10dp"
-                android:text="侧滑菜单"/>
+                android:text="系统侧滑菜单（无标题）"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
