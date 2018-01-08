@@ -26,10 +26,11 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * Created by admin on 2018/1/8.
+ * 菜单在内容布局上层，从左测滑出来、滑入，内容布局随之向右向左滑动；
+ * PagerViewTab有图标和文字，PagerView可左右滑动；
  */
 
-public class ActSlidingMenuQQ extends AppCompatActivity {
+public class ActSlidingMenuDrawerLayoutNoTitle1 extends AppCompatActivity {
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
@@ -45,22 +46,22 @@ public class ActSlidingMenuQQ extends AppCompatActivity {
     ViewPager pagerView;
     @BindView(R.id.pager_tab)
     PagerSlidingTabStrip pagerTab;
+    @BindView(R.id.layout_home_content)
+    LinearLayout layoutHomeContent;
+    @BindView(R.id.layout_sliding_menu)
+    LinearLayout layoutSlidingMenu;
 
     private final String[] TABS = {"坚果", "肉脯", "果冻"};
     private final int[] ICONS = { R.mipmap.ic_launcher_round, R.mipmap.ic_launcher_round,
             R.mipmap.ic_launcher_round };
     private final int[] SELECTED_ISONS = { R.mipmap.ic_launcher, R.mipmap.ic_launcher,
             R.mipmap.ic_launcher };
-    @BindView(R.id.layout_home_content)
-    LinearLayout layoutHomeContent;
-    @BindView(R.id.layout_sliding_menu)
-    LinearLayout layoutSlidingMenu;
     private MyPagerAdpater adpater;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_act_system_slidingmenu_no_title);
+        setContentView(R.layout.activity_act_slidingmenu_drawerlayout_no_title);
         ButterKnife.bind(this);
 
         //使顶部系统状态栏透明
@@ -152,7 +153,7 @@ public class ActSlidingMenuQQ extends AppCompatActivity {
                 case 0:
                     return FrOrderList.newInstance(0);
                 case 1:
-                    return FrFoodList.newInstance(1);
+                    return FrOrderList.newInstance(1);
                 case 2:
                     return FrOrderList.newInstance(2);
             }

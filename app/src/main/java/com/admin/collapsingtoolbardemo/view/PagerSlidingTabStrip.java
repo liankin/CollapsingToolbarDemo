@@ -231,7 +231,6 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
         tab.setText(title);
         tab.setGravity(Gravity.CENTER);
         tab.setSingleLine();
-
         addTab(position, tab);
     }
 
@@ -244,7 +243,6 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
         ImageButton tab = new ImageButton(getContext());
         tab.setImageResource(resId);
-
         addTab(position, tab);
     }
 

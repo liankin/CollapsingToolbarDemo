@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite">
    <LinearLayout
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
@@ -14,7 +15,7 @@
            android:layout_height="wrap_content"
            android:layout_margin="5dp"
            android:src="@mipmap/ic_launcher_round"/>
-   </LinearLayout>
+    </LinearLayout>
     <android.support.v4.view.ViewPager
         android:id="@+id/pager_view"
         android:layout_width="match_parent"
@@ -28,5 +29,6 @@
         android:id="@+id/pager_tab"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:minHeight="45dp"
         android:background="@color/colorWhite"/>
 </LinearLayout>

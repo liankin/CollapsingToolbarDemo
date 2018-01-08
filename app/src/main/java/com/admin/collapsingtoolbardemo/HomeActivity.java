@@ -9,8 +9,9 @@ import android.widget.TextView;
 
 import com.admin.collapsingtoolbardemo.act.ActCoordinatorLayout;
 import com.admin.collapsingtoolbardemo.act.ActSlidingImageRecyclerView;
-import com.admin.collapsingtoolbardemo.act.ActSlidingMenuQQ;
-import com.admin.collapsingtoolbardemo.act.ActSystemSlidingMenuNoTitle;
+import com.admin.collapsingtoolbardemo.act.ActSlidingMenuDrawerLayoutNoTitle;
+import com.admin.collapsingtoolbardemo.act.ActSlidingMenuDrawerLayoutNoTitle1;
+import com.admin.collapsingtoolbardemo.act.ActSlidingMenuHorizontalScrollView;
 import com.admin.collapsingtoolbardemo.act.ActTranslucentScrollView;
 
 import butterknife.BindView;
@@ -34,6 +35,8 @@ public class HomeActivity extends AppCompatActivity {
     TextView tvSystemSlidingMenuNoTitle;
     @BindView(R.id.tv_sliding_menu_qq)
     TextView tvSlidingMenuQq;
+    @BindView(R.id.tv_system_sliding_menu_no_title1)
+    TextView tvSystemSlidingMenuNoTitle1;
 
 
     @Override
@@ -44,7 +47,8 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     @OnClick({R.id.tv_coordinator_layout, R.id.tv_translucent_scroll_view,
-            R.id.tv_sliding_image_recycler_view, R.id.tv_system_sliding_menu_no_title, R.id.tv_sliding_menu_qq})
+            R.id.tv_sliding_image_recycler_view,
+            R.id.tv_system_sliding_menu_no_title, R.id.tv_system_sliding_menu_no_title1,R.id.tv_sliding_menu_qq})
     public void onViewClicked(View view) {
         Intent intent;
         switch (view.getId()) {
@@ -61,11 +65,15 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(intent);
                 break;
             case R.id.tv_system_sliding_menu_no_title:
-                intent = new Intent(HomeActivity.this, ActSystemSlidingMenuNoTitle.class);
+                intent = new Intent(HomeActivity.this, ActSlidingMenuDrawerLayoutNoTitle.class);
+                startActivity(intent);
+                break;
+            case R.id.tv_system_sliding_menu_no_title1:
+                intent = new Intent(HomeActivity.this, ActSlidingMenuDrawerLayoutNoTitle1.class);
                 startActivity(intent);
                 break;
             case R.id.tv_sliding_menu_qq:
-                intent = new Intent(HomeActivity.this, ActSlidingMenuQQ.class);
+                intent = new Intent(HomeActivity.this, ActSlidingMenuHorizontalScrollView.class);
                 startActivity(intent);
                 break;
         }

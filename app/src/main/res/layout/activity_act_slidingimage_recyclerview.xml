@@ -21,7 +21,7 @@
             android:layout_height="match_parent"
             android:background="@color/colorWhite"
             android:layout_gravity="right">
-            <include layout="@layout/activity_act_user_center"/>
+            <include layout="@layout/layout_slidingmenu_menu"/>
         </LinearLayout>
 
     </android.support.v4.widget.DrawerLayout>

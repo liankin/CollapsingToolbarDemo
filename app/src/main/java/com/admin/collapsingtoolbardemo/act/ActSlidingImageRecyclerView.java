@@ -26,8 +26,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * 往上滚动：在图片刚出现时展示顶部部分，随着滚动部分展示全部
- * 往下滚动：在图片刚出现时展示底部部分，随着滚动部分展示全部
+ * 往上滚动：在图片刚出现时展示顶部部分，随着滚动部分展示全部；
+ * 往下滚动：在图片刚出现时展示底部部分，随着滚动部分展示全部；
  */
 
 public class ActSlidingImageRecyclerView extends AppCompatActivity {

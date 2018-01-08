@@ -22,10 +22,11 @@
         <!--主布局-->
         <LinearLayout
             android:id="@+id/layout_home_content"
-            android:background="@color/colorWhite"
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <include layout="@layout/activity_act_slidingmenu_home"/>
+            android:layout_height="match_parent"
+            android:background="@color/colorWhite">
+            <include layout="@layout/layout_slidingmenu_content"/>
         </LinearLayout>
         <!--侧滑菜单-->
         <LinearLayout
@@ -34,7 +35,7 @@
             android:layout_height="match_parent"
             android:background="@color/colorWhite"
             android:layout_gravity="start">
-            <include layout="@layout/activity_act_user_center"/>
+            <include layout="@layout/layout_slidingmenu_menu"/>
         </LinearLayout>
     </android.support.v4.widget.DrawerLayout>
 </LinearLayout>

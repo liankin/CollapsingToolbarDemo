@@ -30,21 +30,28 @@
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
                 android:layout_margin="10dp"
-                android:text="1.往上滚动：在图片刚出现时展示顶部部分，随着滚动部分展示全部；\n2.往下滚动：在图片刚出现时展示底部部分，随着滚动部分展示全部；\n3.自定义侧滑菜单"/>
+                android:text="1.往上滚动：在图片刚出现时展示顶部部分，随着滚动部分展示全部；\n2.往下滚动：在图片刚出现时展示底部部分，随着滚动部分展示全部；\n3.自定义侧滑菜单，菜单在内容布局上层滑出，内容布局不动；"/>
             <TextView
                 android:id="@+id/tv_system_sliding_menu_no_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
                 android:layout_margin="10dp"
-                android:text="系统侧滑菜单（无标题,PagerSlidingTabStrip）"/>
+                android:text="1.菜单在内容布局上层，从左测滑出来、滑入，内容布局不动；\n2.PagerViewTab只有文字，PagerView可左右滑动；"/>
+            <TextView
+                android:id="@+id/tv_system_sliding_menu_no_title1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:layout_margin="10dp"
+                android:text="1.菜单在内容布局上层，从左测滑出来、滑入，内容布局随之向右向左滑动；\n2.PagerViewTab有图标和文字，PagerView可左右滑动；"/>
             <TextView
                 android:id="@+id/tv_sliding_menu_qq"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
                 android:layout_margin="10dp"
-                android:text="侧滑菜单（仿QQ）"/>
+                android:text="侧滑菜单（仿QQ）：\n1.菜单在内容布局上层，从左测滑出来、滑入，内容布局随之向右向左滑动；\n2.PagerViewTab有图标和文字，PagerView不可左右滑动，只可点击tab切换；"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
