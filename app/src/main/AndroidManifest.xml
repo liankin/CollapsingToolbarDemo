@@ -20,6 +20,7 @@
         <activity android:name=".act.ActTranslucentScrollView"/>
         <activity android:name=".act.ActSlidingImageRecyclerView"/>
         <activity android:name=".act.ActSystemSlidingMenuNoTitle" />
+        <activity android:name=".act.ActSlidingMenuQQ"/>
     </application>
 
 </manifest>

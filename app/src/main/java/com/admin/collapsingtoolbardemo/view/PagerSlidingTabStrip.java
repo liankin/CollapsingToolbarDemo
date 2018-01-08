@@ -14,12 +14,17 @@ import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.admin.collapsingtoolbardemo.R;
 
 import java.util.Locale;
 
@@ -31,6 +36,12 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
     public interface IconTabProvider {
         public int getPageIconResId(int position);
+    }
+
+    public interface IconTextTabProvider {
+        public int getPageIconResId(int position);
+        public int getPageSelectedIconResId(int position);
+        public CharSequence getPageTitle(int position);
     }
 
     // @formatter:off
@@ -180,10 +191,11 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
             if (pager.getAdapter() instanceof IconTabProvider) {
                 addIconTab(i, ((IconTabProvider) pager.getAdapter()).getPageIconResId(i));
+            } else if (pager.getAdapter() instanceof IconTextTabProvider) {
+                addIconTextTab(i,((IconTextTabProvider) pager.getAdapter()).getPageIconResId(i),((IconTextTabProvider)pager.getAdapter()).getPageTitle(i).toString());
             } else {
                 addTextTab(i, pager.getAdapter().getPageTitle(i).toString());
             }
-
         }
 
         updateTabStyles();
@@ -208,6 +220,11 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
     }
 
+    /**
+     * 只有文字的tab
+     * @param position
+     * @param title
+     */
     private void addTextTab(final int position, String title) {
 
         TextView tab = new TextView(getContext());
@@ -218,13 +235,52 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
         addTab(position, tab);
     }
 
+    /**
+     * 只有图标的tab
+     * @param position
+     * @param resId
+     */
     private void addIconTab(final int position, int resId) {
 
         ImageButton tab = new ImageButton(getContext());
         tab.setImageResource(resId);
 
         addTab(position, tab);
+    }
 
+    /**
+     * 同时有图标和文字的tab
+     * @param position
+     * @param resId
+     * @param title
+     */
+    private void addIconTextTab(final int position, int resId, String title){
+        LinearLayout.LayoutParams layoutParams =
+                new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        LinearLayout linearLayoutTab = new LinearLayout(getContext());
+        linearLayoutTab.setOrientation(LinearLayout.VERTICAL);
+        linearLayoutTab.setGravity(Gravity.CENTER);
+        linearLayoutTab.setLayoutParams(layoutParams);
+
+        ImageView imageView = new ImageView(getContext());
+        imageView.setImageResource(resId);
+        linearLayoutTab.addView(imageView,0);
+        TextView textView = new TextView(getContext());
+        textView.setText(title);
+        textView.setGravity(Gravity.CENTER);
+        textView.setSingleLine();
+        linearLayoutTab.addView(textView,1);
+        addTab(position,linearLayoutTab);
+
+//        LinearLayout linearLayout =(LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.layout_pagerslidingtab, null);
+//        LinearLayout.LayoutParams layoutParams =
+//                new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+//        linearLayout.setLayoutParams(layoutParams);
+//        ImageView imageView = linearLayout.findViewById(R.id.tab_image_view);
+//        imageView.setImageResource(resId);
+//        TextView textView = linearLayout.findViewById(R.id.ta_tv_name);
+//        textView.setText(title);
+//        addTab(position,linearLayout);
     }
 
     private void addTab(final int position, View tab) {
@@ -248,6 +304,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
             if (tabBackgroundResId > 0) {
                 v.setBackgroundResource(tabBackgroundResId);
             }
+            //只有文字
             if (v instanceof TextView) {
 
                 TextView tab = (TextView) v;
@@ -263,8 +320,54 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
                 if (textAllCaps) {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
                         tab.setAllCaps(true);
-                    } else {
+                } else {
                         tab.setText(tab.getText().toString().toUpperCase(locale));
+                    }
+                }
+            }
+//            //同时有图标和文字
+//            if(v instanceof LinearLayout){
+//                ImageView imageView = v.findViewById(R.id.tab_image_view);
+//                TextView textView = v.findViewById(R.id.ta_tv_name);
+//                textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, tabTextSize);
+//                textView.setTypeface(tabTypeface, tabTypefaceStyle);
+//                if (i == currentPosition) {
+//                    textView.setTextColor(indicatorColor);
+//                    imageView.setImageResource(((IconTextTabProvider) pager.getAdapter()).getPageSelectedIconResId(i));
+//                } else {
+//                    textView.setTextColor(tabTextColor);
+//                    imageView.setImageResource(((IconTextTabProvider) pager.getAdapter()).getPageIconResId(i));
+//                }
+//                // setAllCaps() is only available from API 14, so the upper case is made manually if we are on a
+//                // pre-ICS-build
+//                if (textAllCaps) {
+//                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
+//                        textView.setAllCaps(true);
+//                    } else {
+//                        textView.setText(textView.getText().toString().toUpperCase(locale));
+//                    }
+//                }
+//            }
+            //同时有图标和文字
+            if(v instanceof LinearLayout){
+                ImageView imageView =(ImageView) ((LinearLayout) v).getChildAt(0);
+                TextView textView =(TextView) ((LinearLayout) v).getChildAt(1);
+                textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, tabTextSize);
+                textView.setTypeface(tabTypeface, tabTypefaceStyle);
+                if (i == currentPosition) {
+                    textView.setTextColor(indicatorColor);
+                    imageView.setImageResource(((IconTextTabProvider) pager.getAdapter()).getPageSelectedIconResId(i));
+                } else {
+                    textView.setTextColor(tabTextColor);
+                    imageView.setImageResource(((IconTextTabProvider) pager.getAdapter()).getPageIconResId(i));
+                }
+                // setAllCaps() is only available from API 14, so the upper case is made manually if we are on a
+                // pre-ICS-build
+                if (textAllCaps) {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
+                        textView.setAllCaps(true);
+                    } else {
+                        textView.setText(textView.getText().toString().toUpperCase(locale));
                     }
                 }
             }

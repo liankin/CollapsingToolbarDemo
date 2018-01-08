@@ -37,7 +37,14 @@
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
                 android:layout_margin="10dp"
-                android:text="系统侧滑菜单（无标题）"/>
+                android:text="系统侧滑菜单（无标题,PagerSlidingTabStrip）"/>
+            <TextView
+                android:id="@+id/tv_sliding_menu_qq"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:layout_margin="10dp"
+                android:text="侧滑菜单（仿QQ）"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

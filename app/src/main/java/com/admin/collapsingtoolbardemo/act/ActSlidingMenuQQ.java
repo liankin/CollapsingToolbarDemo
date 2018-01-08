@@ -26,10 +26,10 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * Created by admin on 2018/1/5.
+ * Created by admin on 2018/1/8.
  */
 
-public class ActSystemSlidingMenuNoTitle extends AppCompatActivity {
+public class ActSlidingMenuQQ extends AppCompatActivity {
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
@@ -46,7 +46,11 @@ public class ActSystemSlidingMenuNoTitle extends AppCompatActivity {
     @BindView(R.id.pager_tab)
     PagerSlidingTabStrip pagerTab;
 
-    String[] tabs = {"坚果", "肉脯", "果冻"};
+    private final String[] TABS = {"坚果", "肉脯", "果冻"};
+    private final int[] ICONS = { R.mipmap.ic_launcher_round, R.mipmap.ic_launcher_round,
+            R.mipmap.ic_launcher_round };
+    private final int[] SELECTED_ISONS = { R.mipmap.ic_launcher, R.mipmap.ic_launcher,
+            R.mipmap.ic_launcher };
     @BindView(R.id.layout_home_content)
     LinearLayout layoutHomeContent;
     @BindView(R.id.layout_sliding_menu)
@@ -136,7 +140,7 @@ public class ActSystemSlidingMenuNoTitle extends AppCompatActivity {
         pagerTab.notifyDataSetChanged();
     }
 
-    class MyPagerAdpater extends FragmentPagerAdapter {
+    class MyPagerAdpater extends FragmentPagerAdapter implements PagerSlidingTabStrip.IconTextTabProvider{
 
         public MyPagerAdpater(FragmentManager manager) {
             super(manager);
@@ -157,12 +161,22 @@ public class ActSystemSlidingMenuNoTitle extends AppCompatActivity {
 
         @Override
         public CharSequence getPageTitle(int position) {
-            return tabs[position];
+            return TABS[position];
         }
 
         @Override
         public int getCount() {
-            return tabs.length;
+            return TABS.length;
+        }
+
+        @Override
+        public int getPageIconResId(int position) {
+            return ICONS[position];
+        }
+
+        @Override
+        public int getPageSelectedIconResId(int position) {
+            return SELECTED_ISONS[position];
         }
     }
 

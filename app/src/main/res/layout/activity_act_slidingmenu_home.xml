@@ -27,6 +27,6 @@
     <com.admin.collapsingtoolbardemo.view.PagerSlidingTabStrip
         android:id="@+id/pager_tab"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_height="wrap_content"
         android:background="@color/colorWhite"/>
 </LinearLayout>
