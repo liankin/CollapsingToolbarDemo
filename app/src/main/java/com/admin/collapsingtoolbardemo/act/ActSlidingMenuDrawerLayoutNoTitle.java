@@ -1,6 +1,5 @@
 package com.admin.collapsingtoolbardemo.act;
 
-import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,7 +10,6 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Display;
 import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
@@ -147,11 +145,11 @@ public class ActSlidingMenuDrawerLayoutNoTitle extends AppCompatActivity {
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    return FrOrderList.newInstance(0);
+                    return FrOrder.newInstance(0);
                 case 1:
-                    return FrOrderList.newInstance(1);
+                    return FrOrder.newInstance(1);
                 case 2:
-                    return FrOrderList.newInstance(2);
+                    return FrOrder.newInstance(2);
             }
             return null;
         }

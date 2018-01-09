@@ -21,6 +21,14 @@ android {
         maven {
             url "https://jitpack.io"
         }
+        flatDir {
+            dirs 'libs'
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
     }
 }
 
@@ -38,4 +46,5 @@ dependencies {
     apt 'com.jakewharton:butterknife-compiler:8.0.1'
     compile 'com.zhy:base-rvadapter:3.0.3'
     compile 'com.github.mcxtzhang:SwipeDelMenuLayout:V1.3.0'
+    compile(name:'app-debug', ext:'aar')
 }

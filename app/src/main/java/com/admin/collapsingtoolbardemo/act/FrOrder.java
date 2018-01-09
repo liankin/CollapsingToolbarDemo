@@ -26,7 +26,7 @@ import butterknife.Unbinder;
  * Created by admin on 2017/8/29.
  */
 
-public class FrOrderList extends Fragment {
+public class FrOrder extends Fragment {
 
     @BindView(R.id.tv_content)
     TextView tvContent;
@@ -38,8 +38,8 @@ public class FrOrderList extends Fragment {
     private int mState = 0;
     private LinearLayoutManager mLinearLayoutManager;
 
-    public static FrOrderList newInstance(int mState) {
-        FrOrderList fragment = new FrOrderList();
+    public static FrOrder newInstance(int mState) {
+        FrOrder fragment = new FrOrder();
         Bundle bundle = new Bundle();
         bundle.putInt( DATAKEY, mState);
         fragment.setArguments(bundle);

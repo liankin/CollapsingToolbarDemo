@@ -18,7 +18,7 @@
             <!--引入菜单布局-->
             <include layout="@layout/layout_slidingmenu_menu"/>
             <!--内容布局-->
-            <include layout="@layout/layout_slidingmenu_content"/>
+            <include layout="@layout/layout_radiogroup_content"/>
         </LinearLayout>
     </com.admin.collapsingtoolbardemo.view.SlidingMenu>
 </RelativeLayout>

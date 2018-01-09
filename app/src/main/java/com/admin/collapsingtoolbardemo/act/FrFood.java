@@ -3,8 +3,6 @@ package com.admin.collapsingtoolbardemo.act;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +11,6 @@ import android.widget.TextView;
 
 import com.admin.collapsingtoolbardemo.R;
 import com.admin.collapsingtoolbardemo.adapter.MyListAdapter;
-import com.admin.collapsingtoolbardemo.view.AdImageView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +23,7 @@ import butterknife.Unbinder;
  * Created by admin on 2017/8/29.
  */
 
-public class FrFoodList extends Fragment {
+public class FrFood extends Fragment {
 
     @BindView(R.id.tv_content)
     TextView tvContent;
@@ -39,12 +36,12 @@ public class FrFoodList extends Fragment {
 
     private MyListAdapter myListAdapter;
 
-    public static FrFoodList newInstance(int mState) {
-        FrFoodList frFoodList = new FrFoodList();
+    public static FrFood newInstance(int mState) {
+        FrFood frFood = new FrFood();
         Bundle bundle = new Bundle();
         bundle.putInt(DATAKEY, mState);
-        frFoodList.setArguments(bundle);
-        return frFoodList;
+        frFood.setArguments(bundle);
+        return frFood;
     }
 
     @Override

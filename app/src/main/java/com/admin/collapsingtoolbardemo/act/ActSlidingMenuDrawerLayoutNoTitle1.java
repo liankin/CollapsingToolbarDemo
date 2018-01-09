@@ -151,11 +151,11 @@ public class ActSlidingMenuDrawerLayoutNoTitle1 extends AppCompatActivity {
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    return FrOrderList.newInstance(0);
+                    return FrOrder.newInstance(0);
                 case 1:
-                    return FrOrderList.newInstance(1);
+                    return FrOrder.newInstance(1);
                 case 2:
-                    return FrOrderList.newInstance(2);
+                    return FrOrder.newInstance(2);
             }
             return null;
         }
