@@ -1,24 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <!--自定义View-->
-    <com.admin.collapsingtoolbardemo.view.SlidingMenu
-        android:id="@+id/layout_sliding_menu"
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:rightPadding="100dp"
-        app:drawerType="true"
-        android:scrollbars="none">
-        <LinearLayout
-            android:layout_width="wrap_content"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteY="8dp"
+        tools:layout_editor_absoluteX="0dp">
+        <com.admin.collapsingtoolbardemo.view.SlidingMenu
+            android:id="@+id/layout_sliding_menu"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
-            <!--引入菜单布局-->
-            <include layout="@layout/layout_slidingmenu_menu"/>
-            <!--内容布局-->
-            <include layout="@layout/layout_radiogroup_content"/>
-        </LinearLayout>
-    </com.admin.collapsingtoolbardemo.view.SlidingMenu>
-</RelativeLayout>
+            app:rightPadding="100dp"
+            app:drawerType="true"
+            android:scrollbars="none">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <!--引入菜单布局-->
+                <include layout="@layout/layout_radiogroup_slidingmenu"/>
+                <!--内容布局-->
+                <include layout="@layout/layout_radiogroup_content"/>
+            </LinearLayout>
+        </com.admin.collapsingtoolbardemo.view.SlidingMenu>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,40 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <com.admin.collapsingtoolbardemo.view.TranslucentScrollView
+    android:layout_height="match_parent"
+    android:background="@color/colorGray"
+    android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/layout_header"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:gravity="center"
+        android:background="@drawable/bg_image_sea"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="132dp"
+            android:layout_height="99dp"
+            android:layout_centerInParent="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/img_user" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:textColor="@color/colorBlack"
+            android:text="烘焙高高手"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="5dp" />
+    </LinearLayout>
+    <ScrollView
         android:id="@+id/translucent_scroll_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:scrollbars="none"
-        android:background="@color/colorGray">
+        android:scrollbars="none">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <LinearLayout
-                android:id="@+id/layout_header"
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:gravity="center"
-                android:background="@drawable/bg_image_sea"
-                android:orientation="vertical">
-                <ImageView
-                    android:layout_width="132dp"
-                    android:layout_height="99dp"
-                    android:layout_centerInParent="true"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/img_user" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="15sp"
-                    android:textColor="@color/colorBlack"
-                    android:text="烘焙高高手"
-                    android:layout_centerInParent="true"
-                    android:layout_marginTop="5dp" />
-            </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -78,5 +78,5 @@
                 <include layout="@layout/item_card"/>
             </LinearLayout>
         </LinearLayout>
-    </com.admin.collapsingtoolbardemo.view.TranslucentScrollView>
-</RelativeLayout>
+    </ScrollView>
+</LinearLayout>
