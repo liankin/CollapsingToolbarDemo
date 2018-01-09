@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.admin.collapsingtoolbardemo.R;
+import com.admin.collapsingtoolbardemo.fr.FrOrder;
 import com.admin.collapsingtoolbardemo.view.PagerSlidingTabStrip;
 import com.admin.collapsingtoolbardemo.view.TranslucentScrollView;
 

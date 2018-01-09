@@ -1,4 +1,4 @@
-package com.admin.collapsingtoolbardemo.act;
+package com.admin.collapsingtoolbardemo.fr;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

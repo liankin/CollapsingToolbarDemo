@@ -1,4 +1,4 @@
-package com.admin.collapsingtoolbardemo.act;
+package com.admin.collapsingtoolbardemo.fr;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,10 +11,10 @@ import android.widget.TextView;
 import com.admin.collapsingtoolbardemo.R;
 
 /**
- * Created by admin on 2018/1/9.
+ * Created by admin on 2017/8/29.
  */
 
-public class FrShare  extends Fragment {
+public class FrNotice extends Fragment {
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -26,7 +26,7 @@ public class FrShare  extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_frnotice, null);
         TextView textView = (TextView) view.findViewById(R.id.tv_content);
-        textView.setText("FrShare");
+        textView.setText("FrNotice");
         return view;
     }
 }

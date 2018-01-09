@@ -15,6 +15,9 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.admin.collapsingtoolbardemo.R;
+import com.admin.collapsingtoolbardemo.fr.FrFriend;
+import com.admin.collapsingtoolbardemo.fr.FrNotice;
+import com.admin.collapsingtoolbardemo.fr.FrShare;
 import com.admin.collapsingtoolbardemo.view.SlidingMenu;
 
 import butterknife.BindView;
