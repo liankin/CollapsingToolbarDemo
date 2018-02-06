@@ -2,17 +2,26 @@ package com.admin.collapsingtoolbardemo.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Canvas;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.MotionEvent;
+import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+
 import com.admin.collapsingtoolbardemo.R;
 
 public class SlidingMenu extends HorizontalScrollView {
+
+    private Drawable mShadowDrawable;
+    private View mAboveView;
+
     //自定义View布局中内嵌的最外层的LinearLayout
     private LinearLayout mWapper;
     //菜单布局
@@ -105,9 +114,11 @@ public class SlidingMenu extends HorizontalScrollView {
             mContent = (ViewGroup) mWapper.getChildAt(1);
             //菜单和内容区域的高度都可以保持默认match_parent
             //菜单宽度 = 屏幕宽度 - 菜单距屏幕右侧的间距
-            mMenuWidth = mMenu.getLayoutParams().width = mScreenWidth - mMenuRightPadding;
+            mMenuWidth = mMenu.getLayoutParams().width
+                    = mScreenWidth - mMenuRightPadding;
             mContent.getLayoutParams().width = mScreenWidth;
             //当设置了其中的菜单的宽高和内容区域的宽高之后,最外层的LinearLayout的mWapper就自动设置好了
+            //setShadowDrawable(R.drawable.menu_shadow);
         }
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
@@ -198,5 +209,28 @@ public class SlidingMenu extends HorizontalScrollView {
             //调用属性动画,设TranslationX
             mMenu.setTranslationX(mMenuWidth * scale);
         }
+    }
+
+    public void setShadowDrawable(int resId) {
+        mShadowDrawable = getContext().getResources().getDrawable(resId);
+        mAboveView = new View(this.getContext());
+        LayoutParams aboveParams = new LayoutParams(mMenu.getWidth(),mMenu.getHeight());
+        mMenu.addView(mAboveView, aboveParams);
+        mMenu.bringChildToFront(mAboveView);
+        invalidate();
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        if (mShadowDrawable == null ) return;
+        int mShadowWidth = 80;
+        int left = mContent.getLeft() - mShadowWidth;
+        int top = 0;
+        int right = mContent.getLeft();
+        int bottom = mContent.getHeight();
+        mShadowDrawable.setBounds(left, top, right, bottom);
+        mShadowDrawable.draw(canvas);
+        mAboveView.setBackgroundDrawable(mShadowDrawable);
     }
 }

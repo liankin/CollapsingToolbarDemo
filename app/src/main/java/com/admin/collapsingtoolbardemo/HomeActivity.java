@@ -12,6 +12,7 @@ import com.admin.collapsingtoolbardemo.act.ActSlidingImageRecyclerView;
 import com.admin.collapsingtoolbardemo.act.ActSlidingMenuDrawerLayoutNoTitle;
 import com.admin.collapsingtoolbardemo.act.ActSlidingMenuDrawerLayoutNoTitle1;
 import com.admin.collapsingtoolbardemo.act.ActSlidingMenuHorizontalScrollView;
+import com.admin.collapsingtoolbardemo.act.ActSlidingMenuThread;
 import com.admin.collapsingtoolbardemo.act.ActTranslucentScrollView;
 
 import butterknife.BindView;
@@ -37,6 +38,8 @@ public class HomeActivity extends AppCompatActivity {
     TextView tvSlidingMenuQq;
     @BindView(R.id.tv_system_sliding_menu_no_title1)
     TextView tvSystemSlidingMenuNoTitle1;
+    @BindView(R.id.tv_sliding_menu_thread)
+    TextView tvSlidingMenuThread;
 
 
     @Override
@@ -48,7 +51,9 @@ public class HomeActivity extends AppCompatActivity {
 
     @OnClick({R.id.tv_coordinator_layout, R.id.tv_translucent_scroll_view,
             R.id.tv_sliding_image_recycler_view,
-            R.id.tv_system_sliding_menu_no_title, R.id.tv_system_sliding_menu_no_title1,R.id.tv_sliding_menu_qq})
+            R.id.tv_system_sliding_menu_no_title,
+            R.id.tv_system_sliding_menu_no_title1, R.id.tv_sliding_menu_qq,
+            R.id.tv_sliding_menu_thread})
     public void onViewClicked(View view) {
         Intent intent;
         switch (view.getId()) {
@@ -74,6 +79,10 @@ public class HomeActivity extends AppCompatActivity {
                 break;
             case R.id.tv_sliding_menu_qq:
                 intent = new Intent(HomeActivity.this, ActSlidingMenuHorizontalScrollView.class);
+                startActivity(intent);
+                break;
+            case R.id.tv_sliding_menu_thread:
+                intent = new Intent(HomeActivity.this, ActSlidingMenuThread.class);
                 startActivity(intent);
                 break;
         }

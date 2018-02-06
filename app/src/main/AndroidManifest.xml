@@ -23,6 +23,7 @@
         <activity android:name=".act.ActSlidingMenuDrawerLayoutNoTitle" />
         <activity android:name=".act.ActSlidingMenuDrawerLayoutNoTitle1"/>
         <activity android:name=".act.ActSlidingMenuHorizontalScrollView"/>
+        <activity android:name=".act.ActSlidingMenuThread"/>
     </application>
 
 </manifest>

@@ -33,7 +33,7 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
@@ -46,5 +46,6 @@ dependencies {
     apt 'com.jakewharton:butterknife-compiler:8.0.1'
     compile 'com.zhy:base-rvadapter:3.0.3'
     compile 'com.github.mcxtzhang:SwipeDelMenuLayout:V1.3.0'
-    compile(name:'app-debug', ext:'aar')
+    compile(name: 'app-debug', ext: 'aar')
+    compile project(':SlidingMenu-master')
 }

@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CollapsingToolbarDemo.iml" filepath="$PROJECT_DIR$/CollapsingToolbarDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CollapsingToolbarDemo-master.iml" filepath="$PROJECT_DIR$/CollapsingToolbarDemo-master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SlidingMenu-master/SlidingMenu-master.iml" filepath="$PROJECT_DIR$/SlidingMenu-master/SlidingMenu-master.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

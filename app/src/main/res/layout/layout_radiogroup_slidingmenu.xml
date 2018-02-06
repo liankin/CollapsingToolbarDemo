@@ -1,82 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorGray"
     android:orientation="vertical">
     <LinearLayout
-        android:id="@+id/layout_header"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:gravity="center"
-        android:background="@drawable/bg_image_sea"
+        android:layout_height="match_parent"
         android:orientation="vertical">
-        <ImageView
-            android:layout_width="132dp"
-            android:layout_height="99dp"
-            android:layout_centerInParent="true"
-            android:scaleType="fitXY"
-            android:src="@drawable/img_user" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="15sp"
-            android:textColor="@color/colorBlack"
-            android:text="烘焙高高手"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="5dp" />
-    </LinearLayout>
-    <ScrollView
-        android:id="@+id/translucent_scroll_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scrollbars="none">
         <LinearLayout
+            android:id="@+id/layout_header"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:gravity="center"
+            android:background="@drawable/bg_image_sea"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="132dp"
+                android:layout_height="99dp"
+                android:layout_centerInParent="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/img_user" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textColor="@color/colorBlack"
+                android:text="烘焙高高手"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="5dp" />
+        </LinearLayout>
+        <ScrollView
+            android:id="@+id/translucent_scroll_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:scrollbars="none">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:text="蛋糕"
-                    android:textSize="22sp"
-                    android:textColor="#f180cb"
-                    android:gravity="center"/>
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:text="饼干"
-                    android:textSize="22sp"
-                    android:textColor="#f180cb"
-                    android:gravity="center"/>
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:text="面包"
-                    android:textSize="22sp"
-                    android:textColor="#f180cb"
-                    android:gravity="center"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="150dp"
                 android:orientation="vertical">
-                <include layout="@layout/item_card"/>
-                <include layout="@layout/item_card"/>
-                <include layout="@layout/item_card"/>
-                <include layout="@layout/item_card"/>
-                <include layout="@layout/item_card"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="蛋糕"
+                        android:textSize="22sp"
+                        android:textColor="#f180cb"
+                        android:gravity="center"/>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="饼干"
+                        android:textSize="22sp"
+                        android:textColor="#f180cb"
+                        android:gravity="center"/>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="面包"
+                        android:textSize="22sp"
+                        android:textColor="#f180cb"
+                        android:gravity="center"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="150dp"
+                    android:orientation="vertical">
+                    <include layout="@layout/item_card"/>
+                    <include layout="@layout/item_card"/>
+                    <include layout="@layout/item_card"/>
+                    <include layout="@layout/item_card"/>
+                    <include layout="@layout/item_card"/>
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
-    </ScrollView>
-</LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+    <View
+        android:id="@+id/menu_above_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</RelativeLayout>
